@@ -1,0 +1,17 @@
+body{
+    background-color: #131718;
+    color: #fff;
+}
+
+.container-fluid{
+    padding: 2% 10%;
+}
+
+#container3D canvas{
+    margin: 0 auto;
+    width: 50vw !important;
+    height: 50vh !important;
+    display: block;
+
+
+}
