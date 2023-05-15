@@ -13,6 +13,8 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
+
+// create a renderer with transparent background
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 document.getElementById("container3D").appendChild(renderer.domElement);
 
@@ -21,7 +23,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(-100, -30, 30);
 
 // enable camera controls
-
 var controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.campingFactor = 0.25;
