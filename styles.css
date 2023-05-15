@@ -1,17 +1,78 @@
 body{
     background-color: #131718;
     color: #fff;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .container-fluid{
     padding: 2% 10%;
 }
 
+.navbar-brand{
+    font-size: 24px;
+}
+
 #container3D canvas{
-    margin: 0 auto;
-    width: 50vw !important;
-    height: 50vh !important;
+    width: 100vw !important;
+    height: 75vh !important;
     display: block;
+
+}
+
+.arrow{
+    margin-bottom: 16rem;
+}
+
+span{
+    transition: .2s;
+
+}
+
+span:hover{
+    font-size: 54px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+
+video {
+    width: 100%;
+}
+
+.desc-container{
+    margin-bottom: 6rem;
+}
+
+.contributions-container{
+    margin-top: 6rem;
+}
+
+.role{
+    color: #a4b0bf;
+}
+.overlay {
+    pointer-events: none; /* Allows user interaction with the canvas */
+  }
+  
+
+@media (max-width: 476px)  { 
+    #container3D canvas{
+        width: 100vw !important;
+        height: 50vh !important;
+        display: block;
+    
+    }
+
+    /* .arrow span{
+        visibility: hidden;
+    } */
+
+    .desc-container{
+        text-align: center;
+    }
+
+
 
 
 }
