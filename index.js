@@ -71,8 +71,16 @@ const container3D = document.getElementById('container3D');
 
 // Create a new overlay element
 const overlay = document.createElement('div');
+
+// Detect the user's device and set the appropriate text
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  overlay.textContent = 'Swipe or pinch to interact'; // Mobile device
+} else {
+  overlay.textContent = 'Click and drag to interact'; // Desktop or laptop
+}
+
 overlay.className = 'overlay';
-overlay.textContent = 'Swipe or pinch to interact';
+// overlay.textContent = 'Swipe or pinch to interact';
 
 // Apply styling to the overlay
 overlay.style.position = 'absolute';
