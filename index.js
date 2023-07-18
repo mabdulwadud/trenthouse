@@ -107,6 +107,6 @@ const scrollActive = document.getElementById("description");
 const arrow = document.getElementById("arrow-down");
 
 arrow.addEventListener("click", function(){
-    scrollActive.scrollIntoView({behavior:"smooth", block:"end", inline:"nearest"});
+    scrollActive.scrollIntoView({behavior:"smooth"});
 });
 
