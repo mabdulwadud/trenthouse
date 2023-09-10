@@ -13,7 +13,6 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-
 // create a renderer with transparent background
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 document.getElementById("container3D").appendChild(renderer.domElement);
@@ -23,11 +22,34 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(-100, -30, 30);
 
 // enable camera controls
+const minZoom = 1;
+const maxZoom = 2;
+
+const zoomSpeed = 0.005;
+// add an event listener for the mouse wheel on zoom
+
+window.addEventListener("wheel", function(event) {
+  if (event.deltaY < 0){
+    // zoom in
+    camera.position.z -= zoomSpeed;
+
+  }else{
+    camera.position.z += zoomSpeed;
+  }
+
+  // clamp the camera position within specified limits
+  camera.position.z = THREE.Math.clamp(camera.position.z, minZoom, maxZoom);
+
+  // update camera position
+  camera.updateProjectionMatrix();
+});
+
+
 var controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.campingFactor = 0.25;
 controls.enableZoom = true;
-controls.autoRotate = true;
+controls.autoRotate = false;
 
 //point light 1
 var pointLight1 = new THREE.PointLight(0xffffff, 0.3);
