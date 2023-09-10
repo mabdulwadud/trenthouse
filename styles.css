@@ -6,6 +6,26 @@ body {
     overflow-x: hidden;
   }
   
+  img{
+    max-width: 75%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  section{
+    margin-top: 35rem;
+    /* margin-bottom: 25rem; */
+  }
+
+  .gif{
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-top: 4.5rem;
+  }
+
+
   h1 {
     color: #832e2b;
   }

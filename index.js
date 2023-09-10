@@ -125,10 +125,45 @@ setTimeout(function () {
 }, 3000);
 
 
-const scrollActive = document.getElementById("description");
+const scrollActive = document.getElementById("add-in-paper");
 const arrow = document.getElementById("arrow-down");
 
-arrow.addEventListener("click", function(){
-    scrollActive.scrollIntoView({behavior:"smooth"});
+arrow.addEventListener("click", function() {
+  // Get the section element
+  // Calculate the scroll position to center the section in the viewport
+  const yOffset = window.innerHeight / 2 - scrollActive.offsetHeight / 2;
+
+  // Scroll to the calculated position with smooth behavior
+  window.scrollTo({
+    top: scrollActive.offsetTop - yOffset,
+    behavior: "smooth",
+  });
 });
 
+// Function to handle GIFs visibility
+function handleGIFVisibility(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const gif = entry.target;
+      const src = gif.getAttribute('data-src');
+      if (src) {
+        gif.setAttribute('src', src);
+        gif.removeAttribute('data-src');
+      }
+    }
+  });
+}
+
+// Create an Intersection Observer
+const gifObserver = new IntersectionObserver(handleGIFVisibility, {
+  root: null, // Viewport
+  threshold: 0.5, // Animation starts when the middle of the GIF is in the middle of the viewport
+});
+
+// Select all GIF elements
+const gifs = document.querySelectorAll('.gif');
+
+// Observe each GIF element
+gifs.forEach((gif) => {
+  gifObserver.observe(gif);
+});
