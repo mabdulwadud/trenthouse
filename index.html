@@ -8,19 +8,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>What's Cookin</title>
+    <title>1742 Kitchen</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <!-- Styles -->
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="bootstrap.min.css" rel="stylesheet">
     <!-- Local style -->
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts for Icons-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
 </head>
 
 <body>
@@ -28,33 +27,46 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- Navigation -->
-    <nav class="navabr navbar-expand-lg bg-dark text-center">
+    <nav class="navabr navbar-expand-lg nav-bg text-center">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand">What's Cookin</a>
+            <a href="index.html" class="navbar-brand">1742 Kitchen</a>
         </div>
     </nav>
 
    <!-- ThreeJs container -->
     <div id="container3D"></div>
     <!-- Scroll down button -->
-    <div class="text-center arrow"><span class="material-symbols-outlined" id="arrow-down">
-        arrow_downward
-        </span></div>
+    <div class="text-center arrow">
+        <span id="arrow-down"><p>▼</p></span>
+    </div>
     
     <!-- Description and video section -->
     <section id="description">
-        <div class="desc-container container-fluid row mt-5">
+        <div class="desc-container container-fluid row mt-5 text-center">
             <div class="text-descr p-3 col-md-6">
-                <h1 id="add-in-paper">An Ad in the Paper</h1>
-                <p id="about">Watch the video to see what the kitchen might have looked like according to an advertisement that was posted about it.</p>
-            </div>
-            <div class="video col-md-6">
-                <video src="video/kitchen_narrated.mp4" controls playsinline>Your browser does not support video playback.</video>
+                <h1 class="mb-5" id="add-in-paper">An Ad in the Paper</h1>
+                <p id="about">Press the "Play" button to listen to a reading of an excerpt from the newspaper advertisement about the 1742 Kitchen.</p>
+                <audio controls src="audio/ad read.wav">Listen</audio>
             </div>
         </div>
+
+        <section class="text-center" id="paved-gangway">
+            <h1>Gangway</h1>
+            <img data-src="img/arch-gif.gif" class="gif" alt="GIF of gangway being built">
+        </section>
+        
+        <section class="text-center" id="brick-kitchen">
+            <h1>The Kitchen</h1>
+            <img data-src="img/ezgif.com-gif-maker (1).gif" class="gif" alt="GIF of gangway being built">
+        </section>
+        
+        <section class="text-center" id="the-well">
+            <h1>The Well</h1>
+            <img class="mt-5" src="img/areal-view.JPG" alt="areal view of well">
+            <figcaption class="container-fluid">Unlike the rest of the 1742 Kitchen, the well is the only portion that exists today, as seen in this areal image.</figcaption>
     </section>
 
-    <section id="contributions">
+    <footer id="contributions">
         <div class="contributions-container container-fluid row text-center">
             <h1>Contributors</h1>
             <p>This project was put together by students part of <em>IMM 280: Design Perspectives in Interactive Multimedia</em>  at The College of New Jersey for the William Trent House in Trenton, NJ</p>
@@ -62,33 +74,22 @@
                 <div class="row">
                     <h4 class="name">Ma'Sum Abdul-Wadud</h4>
                     <p class="role">Web Designer and Video Editor</p>
-                    <h4 class="name">Jamie Woell</h4>
-                    <p class="role">2D Mockup</p>
-                    <h4 class="name">Emily "Murph" Murphy</h4>
-                    <p class="role">3D Model</p>
-                    <h4 class="name">Cary Zukerman</h4>
-                    <p class="role">Video Voice Over</p>
-                </div>
-            </div>
-
         </div>
-    </section>
+    </footer>
  
 
     <!-- ThreeJS CDN -->
     <script type="importmap">
     {
       "imports": {
-        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.152.2/examples/jsm/"
+        "three": "/three.module.js",
+        "three/addons/": "/jsm/"
       }
     }
   </script>
-    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <script async src="es-module-shims.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
     <script type="module" src="index.js"></script>
 </body>
 

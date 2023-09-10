@@ -1,70 +1,122 @@
-body{
-    background-color: #131718;
-    color: #fff;
+/* Global Styles */
+body {
+    background-color: #fff;
+    color: #000;
     margin: 0;
     overflow-x: hidden;
-}
+  }
+  
+  img{
+    max-width: 75%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
 
-.container-fluid{
+  section{
+    margin-top: 35rem;
+    /* margin-bottom: 25rem; */
+  }
+
+  .gif{
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-top: 4.5rem;
+  }
+
+
+  h1 {
+    color: #832e2b;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  .container-fluid {
     padding: 2% 10%;
-}
-
-.navbar-brand{
+  }
+  
+  /* Navbar Styles */
+  .nav-bg {
+    background-color: #fff;
+    border: 1.5px solid #fff;
+    border-bottom-color: hsl(0, 0%, 65%);
+  }
+  
+  .navbar-brand {
     font-size: 24px;
-}
-
-#container3D canvas{
+    color: #832e2b;
+    font-weight: 700;
+  }
+  
+  /* 3D Container Styles */
+  #container3D canvas {
     width: 100vw !important;
     height: 75vh !important;
     display: block;
-
-}
-
-.arrow{
+  }
+  
+  /* Arrow Styles */
+  .arrow {
     margin-bottom: 16rem;
-}
-
-span{
-    transition: .2s;
-
-}
-
-span:hover{
-    font-size: 54px;
-    transition: .2s;
+  }
+  
+  #arrow-down p {
+    font-size: 44px;
+  }
+  
+  /* Image Styles */
+  img {
+    color: #fff;
+  }
+  
+  /* Hover Styles */
+  span:hover {
+    font-size: 32px;
+    transition: 0.2s;
     cursor: pointer;
-}
-
-
-video {
+  }
+  
+  /* Video Styles */
+  video {
     width: 100%;
-}
-
-.desc-container{
+  }
+  
+  /* Description Container Styles */
+  .desc-container {
     margin-bottom: 6rem;
-}
-
-.contributions-container{
+  }
+  
+  /* Contributions Container Styles */
+  .contributions-container {
     margin-top: 6rem;
-}
-
-.role{
-    color: #a4b0bf;
-}
-.overlay {
+  }
+  
+  /* Role Styles */
+  .role {
+    color: #832e2b;
+  }
+  
+  /* Overlay Styles */
+  .overlay {
     pointer-events: none; /* Allows user interaction with the canvas */
   }
   
-
-@media (max-width: 476px)  { 
-    #container3D canvas{
-        width: 100vw !important;
-        height: 50vh !important;
-        display: block;
-    
+  /* Media Query for Small Screens */
+  @media (max-width: 476px) {
+    #container3D canvas {
+      width: 100vw !important;
+      height: 50vh !important;
+      display: flex;
+      flex-direction: column;
     }
-
-    .desc-container{
-        text-align: center;
+  
+    .desc-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-}
+  }
+  

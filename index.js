@@ -13,7 +13,6 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-
 // create a renderer with transparent background
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 document.getElementById("container3D").appendChild(renderer.domElement);
@@ -23,11 +22,34 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(-100, -30, 30);
 
 // enable camera controls
+const minZoom = 1;
+const maxZoom = 2;
+
+const zoomSpeed = 0.005;
+// add an event listener for the mouse wheel on zoom
+
+window.addEventListener("wheel", function(event) {
+  if (event.deltaY < 0){
+    // zoom in
+    camera.position.z -= zoomSpeed;
+
+  }else{
+    camera.position.z += zoomSpeed;
+  }
+
+  // clamp the camera position within specified limits
+  camera.position.z = THREE.Math.clamp(camera.position.z, minZoom, maxZoom);
+
+  // update camera position
+  camera.updateProjectionMatrix();
+});
+
+
 var controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.campingFactor = 0.25;
 controls.enableZoom = true;
-controls.autoRotate = true;
+controls.autoRotate = false;
 
 //point light 1
 var pointLight1 = new THREE.PointLight(0xffffff, 0.3);
@@ -103,10 +125,45 @@ setTimeout(function () {
 }, 3000);
 
 
-const scrollActive = document.getElementById("description");
+const scrollActive = document.getElementById("add-in-paper");
 const arrow = document.getElementById("arrow-down");
 
-arrow.addEventListener("click", function(){
-    scrollActive.scrollIntoView({behavior:"smooth", block:"end", inline:"nearest"});
+arrow.addEventListener("click", function() {
+  // Get the section element
+  // Calculate the scroll position to center the section in the viewport
+  const yOffset = window.innerHeight / 2 - scrollActive.offsetHeight / 2;
+
+  // Scroll to the calculated position with smooth behavior
+  window.scrollTo({
+    top: scrollActive.offsetTop - yOffset,
+    behavior: "smooth",
+  });
 });
 
+// Function to handle GIFs visibility
+function handleGIFVisibility(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const gif = entry.target;
+      const src = gif.getAttribute('data-src');
+      if (src) {
+        gif.setAttribute('src', src);
+        gif.removeAttribute('data-src');
+      }
+    }
+  });
+}
+
+// Create an Intersection Observer
+const gifObserver = new IntersectionObserver(handleGIFVisibility, {
+  root: null, // Viewport
+  threshold: 0.5, // Animation starts when the middle of the GIF is in the middle of the viewport
+});
+
+// Select all GIF elements
+const gifs = document.querySelectorAll('.gif');
+
+// Observe each GIF element
+gifs.forEach((gif) => {
+  gifObserver.observe(gif);
+});
